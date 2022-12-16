@@ -1,7 +1,7 @@
 node{
     stage('code checkout'){
         echo 'checking out the code'
-        git credentialsId: 'github', url: 'https://github.com/devopsmvc/insurance.git'
+        git 'https://github.com/devopsmvc/insurance.git'
     }
 
     stage('Compile'){
