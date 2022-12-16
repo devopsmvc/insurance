@@ -1,7 +1,7 @@
 node{
     stage('code checkout'){
         echo 'checking out the code'
-        git 'https://github.com/devopsmvc/insurance.git'
+        git branch: 'main', credentialsId: 'github', url: 'https://github.com/devopsmvc/insurance.git'
     }
 
     stage('Compile'){
@@ -25,8 +25,8 @@ node{
     }
 
     stage('deploy'){
-        echo 'deploy the Insurance App to tomcat9'
-        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://172.31.1.190:8081/')], contextPath: 'Insurance', war: '**/*.war'
+        echo 'deploy the address book to tomcat9'
+        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://172.31.1.190:8081')], contextPath: 'Insurance-pipeline', war: '**/*.war'
     }
 
 }
